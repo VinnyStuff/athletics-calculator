@@ -1,18 +1,33 @@
+const inputSpeed = document.getElementById("speed");
+const inputTime = document.getElementById("time");
+const inputPace = document.getElementById("pace");
+const inputDistance = document.getElementById("distance");
+
+
+
 function test(){
-    document.getElementById("demo").innerHTML = 32;
 
     document.getElementById("speed").innerHTML = 100;
-
 }
 
 test();
 
 
 function Result(){
-    if (document.getElementById("distance").value.length == 0){
-        alert("Preencha a distância")
+    if (inputDistance.value.length <= 0 || Number(inputDistance.value) == 0){
+        alert("Preencha a distância");
     }
     else {
+        document.getElementById("demo").innerHTML = inputDistance.value;
 
+        document.getElementById("demo").style.backgroundColor = "Red";
     }
+}
+
+function GetInputDistance(){
+    return inputDistance;
+}
+
+class Person{
+
 }
