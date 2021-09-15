@@ -9,13 +9,17 @@
 <body>
     <p>Para funcionar você precisa de um valor na distância e em algum outro campo</p>
 
-    Time <input id="time" type="time" step="1"/>  <br> <br>
+    Time <input id="timeHour" type="number" placeholder="Hour"/>  
+    <input id="timeMinutes" type="number" placeholder="Minutes"/>
+    <input id="timeSeconds" type="number" placeholder="Seconds"/>
+    <br> <br>
     
     Speed (km/h) <input id="speed" type="number"/>  <br> <br>
     
-    Distance <input id="distance" type="number"/>  <br> <br>
+    Distance (km) <input id="distance" type="number"/>  <br> <br>
 
-    Pace <input id="paceMin" type="number" placeholder="Min"/> <input id="paceSeconds" type="number" placeholder="Seconds"/> <br> <br>
+    Pace <input id="paceMinutes" type="number" placeholder="Minutes"/> 
+    <input id="paceSeconds" type="number" placeholder="Seconds"/> <br> <br>
 
     <button onclick="Result()">Calculate</button> <br> <br>
 
