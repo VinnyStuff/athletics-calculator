@@ -3,31 +3,21 @@ const inputTime = document.getElementById("time");
 const inputPace = document.getElementById("pace");
 const inputDistance = document.getElementById("distance");
 
-
-
-function test(){
-
-    document.getElementById("speed").innerHTML = 100;
-}
-
-test();
-
-
-function Result(){
+function GetTheEmptyBox(){
     if (inputDistance.value.length <= 0 || Number(inputDistance.value) == 0){
         alert("Preencha a distância");
     }
-    else {
-        document.getElementById("demo").innerHTML = inputDistance.value;
+    else if (inputSpeed.value.length <= 0 || Number(inputSpeed.value) == 0){
 
-        document.getElementById("demo").style.backgroundColor = "Red";
+    }
+    else if(inputTime.value.length <= 0 || Number(inputTime.value) == 0){
+
+    }
+    else if(inputPace.value.length <= 0 || Number(inputPace.value) == 0){
+
     }
 }
 
-function GetInputDistance(){
-    return inputDistance;
-}
-
-class Person{
-
+function Result(){
+    
 }
