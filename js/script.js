@@ -21,13 +21,16 @@ function Result(){
         if (Number(inputSpeed.value) > 0){
             totalValue = inputDistance.value / inputSpeed.value;
             
-            hourValue = Math.trunc(totalValue);
-            document.getElementById("timeHour").value = hourValue;
+            hourValue = totalValue;
+            document.getElementById("timeHour").value = Math.trunc(hourValue);
 
             minutesValue = 0.60 * ((totalValue % 1) * 100);
-            document.getElementById("timeMinutes").value = minutesValue;
+            document.getElementById("timeMinutes").value = Math.trunc(minutesValue);
 
-            console.log(totalValue % 1);
+            secondsValue = minutesValue % 1;
+            secondsValue = Math.round(secondsValue * 100);
+            secondsValue = 0.6 * secondsValue;
+            document.getElementById("timeSeconds").value = secondsValue;
         }
     }
 }
