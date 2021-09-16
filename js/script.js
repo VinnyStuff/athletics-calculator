@@ -47,8 +47,11 @@ function OutputPace(){
     console.log("inputTimeMinutes " + inputTimeMinutes.value);
 
 
-    let minutesValue = inputTimeMinutes.value + hourValue;
+    let minutesValue = Number(inputTimeMinutes.value) + hourValue;
     console.log("minutesValue " + minutesValue);
+
+    totalPaceValue = minutesValue / inputDistance.value;
+    console.log("totalPaceValue" + totalPaceValue);
 }
 
 function OutputSpeed(){
@@ -62,6 +65,9 @@ function Result(){
     else{
         if (Number(inputSpeed.value) > 0){ //if have something in speed
             OutputTime();
+            OutputPace();
+        }
+        if (Number(inputTimeHour.value) > 0 || Number(inputTimeMinutes.value) > 0  || Number(inputTimeSeconds.value) > 0){
             OutputPace();
         }
     }
