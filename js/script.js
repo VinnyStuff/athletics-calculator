@@ -43,15 +43,19 @@ function OutputTime(){
 
 function OutputPace(){
     let hourValue = inputTimeHour.value * 60;
-    console.log("hourValue " + hourValue);
-    console.log("inputTimeMinutes " + inputTimeMinutes.value);
-
 
     let minutesValue = Number(inputTimeMinutes.value) + hourValue;
-    console.log("minutesValue " + minutesValue);
 
-    totalPaceValue = minutesValue / inputDistance.value;
-    console.log("totalPaceValue" + totalPaceValue);
+    let totalPaceValue = minutesValue / inputDistance.value;
+    
+    let PaceMinValue = Math.trunc(totalPaceValue);
+
+    let PaceSecondsValue = totalPaceValue % 1;
+    PaceSecondsValue = Math.round(PaceSecondsValue * 100);
+    PaceSecondsValue = 0.6 * PaceSecondsValue;
+
+    inputPaceMinutes.value = PaceMinValue;
+    inputPaceSeconds.value = PaceSecondsValue;
 }
 
 function OutputSpeed(){
@@ -67,8 +71,10 @@ function Result(){
             OutputTime();
             OutputPace();
         }
-        if (Number(inputTimeHour.value) > 0 || Number(inputTimeMinutes.value) > 0  || Number(inputTimeSeconds.value) > 0){
+        else if (Number(inputTimeHour.value) > 0 || Number(inputTimeMinutes.value) > 0  || Number(inputTimeSeconds.value) > 0){
+            //OutputSpeed();
             OutputPace();
+            //OutputTime();
         }
     }
 }
