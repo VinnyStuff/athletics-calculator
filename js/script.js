@@ -1,17 +1,23 @@
 const inputSpeed = document.getElementById("speed");
-const inputTime = document.getElementById("time");
-const inputPace = document.getElementById("pace");
+
 const inputDistance = document.getElementById("distance");
+
+const inputTimeHour = document.getElementById("timeHour");
+const inputTimeMinutes = document.getElementById("timeMinutes");
+const inputTimeSeconds = document.getElementById("timeSeconds");
+
+const inputPaceMinutes = document.getElementById("paceMinutes");
+const inputPaceSeconds = document.getElementById("paceSeconds");
 
 function OutputTime(){
     //get the numbers
-    totalValue = inputDistance.value / inputSpeed.value;
+    let totalValue = inputDistance.value / inputSpeed.value;
             
-    hourValue = totalValue;
+    let hourValue = totalValue;
 
-    minutesValue = 0.60 * ((totalValue % 1) * 100);
+    let minutesValue = 0.60 * ((totalValue % 1) * 100);
 
-    secondsValue = minutesValue % 1;
+    let secondsValue = minutesValue % 1;
     secondsValue = Math.round(secondsValue * 100);
     secondsValue = 0.6 * secondsValue;
 
@@ -25,17 +31,24 @@ function OutputTime(){
     }
 
     //print
-    document.getElementById("timeHour").value = Math.trunc(hourValue);
+    inputTimeHour.value = Math.trunc(hourValue);
 
-    document.getElementById("timeMinutes").value = Math.trunc(minutesValue);
+    inputTimeMinutes.value = Math.trunc(minutesValue);
 
-    document.getElementById("timeSeconds").value = Math.trunc(secondsValue);
+    inputTimeSeconds.value = Math.trunc(secondsValue);
+
 
     //TODO: não arredondar o segundos e colocar decimais // colocar as variaveis que faltam que estão presente no HTML
 }
 
 function OutputPace(){
+    let hourValue = inputTimeHour.value * 60;
+    console.log("hourValue " + hourValue);
+    console.log("inputTimeMinutes " + inputTimeMinutes.value);
 
+
+    let minutesValue = inputTimeMinutes.value + hourValue;
+    console.log("minutesValue " + minutesValue);
 }
 
 function OutputSpeed(){
