@@ -9,6 +9,8 @@ const inputTimeSeconds = document.getElementById("timeSeconds");
 const inputPaceMinutes = document.getElementById("paceMinutes");
 const inputPaceSeconds = document.getElementById("paceSeconds");
 
+const allInputs = [inputSpeed, inputDistance, inputTimeHour,  inputTimeMinutes, inputTimeSeconds, inputPaceMinutes, inputPaceSeconds]
+
 function OutputTime(){
     //get the numbers
     let totalValue = inputDistance.value / inputSpeed.value;
@@ -102,4 +104,9 @@ function Result(){
     }
 
     //TODO: CALCULADORA FUNCIONANDO, AGORA PEGAR O VALOR QUE MUDOU E REALIZAR OS OUTROS CALCULOS EM CIMA DELE
+}
+function Clean(){
+    for (let i = 0; i < allInputs.length; i++){
+        allInputs[i].value = "";
+    }
 }
