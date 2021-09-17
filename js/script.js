@@ -31,15 +31,12 @@ function OutputTime(){
         minutesValue = 0;
         hourValue += 1;
     }
-
     //print
     inputTimeHour.value = Math.trunc(hourValue);
 
     inputTimeMinutes.value = Math.trunc(minutesValue);
 
     inputTimeSeconds.value = Math.trunc(secondsValue);
-
-
     //TODO: não arredondar o segundos e colocar decimais // colocar as variaveis que faltam que estão presente no HTML
 }
 
@@ -65,32 +62,53 @@ function OutputSpeed(){
     let distanceValue = Number(inputDistance.value);
 
     let speedValue = distanceValue / timeValue;
-    inputSpeed.value = parseFloat(speedValue).toFixed(2);
+    inputSpeed.value = speedValue.toFixed(2);
 }
 
-function SpeedByPace(){
+function OutputSpeedByPace(){
     let speedValue = 60 / ((Number(inputPaceSeconds.value) / 60) + (Number(inputPaceMinutes.value)));
     console.log(speedValue);
-    inputSpeed.value = parseFloat(speedValue).toFixed(2);
+    inputSpeed.value = speedValue.toFixed(2);
+}
+
+function OutputDistance(){
+    let distanceValue = Number(inputSpeed.value) * (((Number(inputTimeSeconds.value / 60) + Number(inputTimeMinutes.value)) / 60) + Number(inputTimeHour.value));
+
+    inputDistance.value = distanceValue.toFixed(2);
 }
 
 function Result(){
     if (Number(inputSpeed.value) > 0){ //if have something in speed
-        OutputTime();
-        OutputPace();
+        if (Number(inputTimeHour.value) > 0 || Number(inputTimeMinutes.value) > 0 || Number(inputTimeSeconds.value) > 0){
+            OutputDistance();
+            OutputPace();
+        }
+        else{
+            OutputTime();
+            OutputPace();
+        }
     }
     else if (Number(inputTimeHour.value) > 0 || Number(inputTimeMinutes.value) > 0  || Number(inputTimeSeconds.value) > 0){//if have something in time
         OutputSpeed();
         OutputPace();
     }
     else if (Number(inputPaceMinutes.value) > 0 || Number(inputPaceSeconds.value) > 0){ //if something in pace
-        SpeedByPace();
+        OutputSpeedByPace();
     }
-
+    PutZero();
     //TODO: CALCULADORA FUNCIONANDO, AGORA PEGAR O VALOR QUE MUDOU E REALIZAR OS OUTROS CALCULOS EM CIMA DELE
 }
-function Clean(){
+
+function Clear(){
     for (let i = 0; i < allInputs.length; i++){
         allInputs[i].value = "";
+    }
+}
+
+function PutZero(){ //if the input is null, put zero
+    for (let i = 0; i < allInputs.length; i++){
+        if (allInputs[i].value == ""){
+            allInputs[i].value = "0";
+        }
     }
 }
