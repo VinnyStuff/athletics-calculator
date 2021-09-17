@@ -59,22 +59,47 @@ function OutputPace(){
 }
 
 function OutputSpeed(){
+    let timeValue = (Number(inputTimeSeconds.value) / 60) + (Number(inputTimeMinutes.value) / 60) + Number(inputTimeHour.value);
+    let distanceValue = Number(inputDistance.value);
 
+    let speedValue = distanceValue / timeValue;
+    inputSpeed.value = parseFloat(speedValue).toFixed(2);
+}
+
+function SpeedByPace(){
+    let speedValue = 60 / ((Number(inputPaceSeconds.value) / 60) + (Number(inputPaceMinutes.value)));
+    console.log(speedValue);
+    inputSpeed.value = parseFloat(speedValue).toFixed(2);
 }
 
 function Result(){
-    if (Number(inputDistance.value) == 0){
-        alert("Preencha a distância");
+    /*if (Number(inputDistance.value) == 0 && Number(inputPaceMinutes.value) == 0 || Number(inputPaceSeconds.value) == 0){
+        alert("Preencha a distância ou o pace");
     }
     else{
         if (Number(inputSpeed.value) > 0){ //if have something in speed
             OutputTime();
             OutputPace();
         }
-        else if (Number(inputTimeHour.value) > 0 || Number(inputTimeMinutes.value) > 0  || Number(inputTimeSeconds.value) > 0){
-            //OutputSpeed();
+        else if (Number(inputTimeHour.value) > 0 || Number(inputTimeMinutes.value) > 0  || Number(inputTimeSeconds.value) > 0){//if have something in time
+            OutputSpeed();
             OutputPace();
-            //OutputTime();
         }
+        else if (Number(inputPaceMinutes.value) > 0 || Number(inputPaceSeconds.value) > 0){
+            SpeedByPace();
+        }
+    }*/
+    if (Number(inputSpeed.value) > 0){ //if have something in speed
+        OutputTime();
+        OutputPace();
     }
+    else if (Number(inputTimeHour.value) > 0 || Number(inputTimeMinutes.value) > 0  || Number(inputTimeSeconds.value) > 0){//if have something in time
+        OutputSpeed();
+        OutputPace();
+    }
+    else if (Number(inputPaceMinutes.value) > 0 || Number(inputPaceSeconds.value) > 0){
+        SpeedByPace();
+    }
+
+    //TODO: CALCULADORA FUNCIONANDO, AGORA PEGAR O VALOR QUE MUDOU E REALIZAR OS OUTROS CALCULOS EM CIMA DELE
 }
