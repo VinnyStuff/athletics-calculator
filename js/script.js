@@ -75,22 +75,6 @@ function SpeedByPace(){
 }
 
 function Result(){
-    /*if (Number(inputDistance.value) == 0 && Number(inputPaceMinutes.value) == 0 || Number(inputPaceSeconds.value) == 0){
-        alert("Preencha a distância ou o pace");
-    }
-    else{
-        if (Number(inputSpeed.value) > 0){ //if have something in speed
-            OutputTime();
-            OutputPace();
-        }
-        else if (Number(inputTimeHour.value) > 0 || Number(inputTimeMinutes.value) > 0  || Number(inputTimeSeconds.value) > 0){//if have something in time
-            OutputSpeed();
-            OutputPace();
-        }
-        else if (Number(inputPaceMinutes.value) > 0 || Number(inputPaceSeconds.value) > 0){
-            SpeedByPace();
-        }
-    }*/
     if (Number(inputSpeed.value) > 0){ //if have something in speed
         OutputTime();
         OutputPace();
@@ -99,7 +83,7 @@ function Result(){
         OutputSpeed();
         OutputPace();
     }
-    else if (Number(inputPaceMinutes.value) > 0 || Number(inputPaceSeconds.value) > 0){
+    else if (Number(inputPaceMinutes.value) > 0 || Number(inputPaceSeconds.value) > 0){ //if something in pace
         SpeedByPace();
     }
 
