@@ -107,10 +107,10 @@ function OutputDistance(whereFrom){
 
 function Calculate(){
     //PutZero();
-    if (Number(inputTimeHour.value) > 0 || Number(inputTimeMinutes.value) > 0  || Number(inputTimeSeconds.value) > 0){//if have something in time
+    if (InputTimeHaveSomething() == true){//if have something in time
         OutputSpeed(); //need distance 
-        OutputPace(); //need the speed
-        OutputDistance("Time") //need the time(need transform everything in minutes), pace 
+        //OutputPace(); //need the speed
+        //OutputDistance("Time") //need the time(need transform everything in minutes), pace 
     }
     else if (Number(inputSpeed.value) > 0){ //if have something in speed
         if (Number(inputTimeHour.value) > 0 || Number(inputTimeMinutes.value) > 0 || Number(inputTimeSeconds.value) > 0){
@@ -131,6 +131,14 @@ function Calculate(){
     //TODO: CALCULADORA FUNCIONANDO, AGORA PEGAR O VALOR QUE MUDOU E REALIZAR OS OUTROS CALCULOS EM CIMA DELE
 }
 
+function InputTimeHaveSomething(){
+    if (Number(inputTimeHour.value) > 0 || Number(inputTimeMinutes.value) > 0  || Number(inputTimeSeconds.value) > 0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 function Clear(){
     for (let i = 0; i < allInputs.length; i++){
         allInputs[i].value = "";
