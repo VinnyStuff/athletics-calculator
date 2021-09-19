@@ -53,7 +53,6 @@ function OutputPace(whereFrom){
 
         inputPaceMinutes.value = paceMinutesValue;
         inputPaceSeconds.value = paceSecondsValue;
-        console.log(paceSecondsValue);
     }
     else{
         let hourValue = inputTimeHour.value * 60;
@@ -88,14 +87,32 @@ function OutputSpeed(whereFrom){
     }
 }
 
-function OutputDistance(){
-    let distanceValue = Number(inputSpeed.value) * (((Number(inputTimeSeconds.value / 60) + Number(inputTimeMinutes.value)) / 60) + Number(inputTimeHour.value));
+function OutputDistance(whereFrom){
+    if (whereFrom == "Time"){
+        //time
+        let timeValue = (Number(inputTimeHour.value) * 60) + (Number(inputTimeMinutes.value)) + (Number(inputTimeSeconds.value) / 60);
 
-    inputDistance.value = distanceValue.toFixed(2);
+        let paceValue = (Number(inputPaceMinutes.value)) + (Number(inputPaceSeconds.value) / 60);
+
+        let distanceValue = timeValue / paceValue;
+
+        inputDistance.value = distanceValue;
+    }
+    else{
+        let distanceValue = Number(inputSpeed.value) * (((Number(inputTimeSeconds.value / 60) + Number(inputTimeMinutes.value)) / 60) + Number(inputTimeHour.value));
+
+        inputDistance.value = distanceValue.toFixed(2);
+    }
 }
 
 function Calculate(){
-    if (Number(inputSpeed.value) > 0){ //if have something in speed
+    //PutZero();
+    if (Number(inputTimeHour.value) > 0 || Number(inputTimeMinutes.value) > 0  || Number(inputTimeSeconds.value) > 0){//if have something in time
+        OutputSpeed(); //need distance 
+        OutputPace(); //need the speed
+        OutputDistance("Time") //need the time(need transform everything in minutes), pace 
+    }
+    else if (Number(inputSpeed.value) > 0){ //if have something in speed
         if (Number(inputTimeHour.value) > 0 || Number(inputTimeMinutes.value) > 0 || Number(inputTimeSeconds.value) > 0){
             OutputDistance();
             OutputPace();
@@ -105,9 +122,8 @@ function Calculate(){
             OutputTime();
         }
     }
-    else if (Number(inputTimeHour.value) > 0 || Number(inputTimeMinutes.value) > 0  || Number(inputTimeSeconds.value) > 0){//if have something in time
-        OutputSpeed();
-        OutputPace();
+    else if (Number(inputDistance.value) > 0){ //if have something in distance
+
     }
     else if (Number(inputPaceMinutes.value) > 0 || Number(inputPaceSeconds.value) > 0){ //if something in pace
         OutputSpeed("Pace");
