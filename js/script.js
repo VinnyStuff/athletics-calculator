@@ -40,35 +40,52 @@ function OutputTime(){
     //TODO: não arredondar o segundos e colocar decimais // colocar as variaveis que faltam que estão presente no HTML
 }
 
-function OutputPace(){
-    let hourValue = inputTimeHour.value * 60;
+function OutputPace(whereFrom){
+    if ("Speed"){
+        let paceValue = 60 / (Number(inputSpeed.value))
 
-    let minutesValue = Number(inputTimeMinutes.value) + hourValue;
+        let paceMinutesValue = Math.trunc(paceValue);
 
-    let totalPaceValue = minutesValue / inputDistance.value;
+        let paceSecondsValue = paceValue % 1;
+        paceSecondsValue = Math.round(paceSecondsValue * 100);
+        paceSecondsValue = 0.6 * paceSecondsValue;
+        paceSecondsValue = Math.round(paceSecondsValue);
+
+        inputPaceMinutes.value = paceMinutesValue;
+        inputPaceSeconds.value = paceSecondsValue;
+        console.log(paceSecondsValue);
+    }
+    else{
+        let hourValue = inputTimeHour.value * 60;
+
+        let minutesValue = Number(inputTimeMinutes.value) + hourValue;
     
-    let PaceMinValue = Math.trunc(totalPaceValue);
-
-    let PaceSecondsValue = totalPaceValue % 1;
-    PaceSecondsValue = Math.round(PaceSecondsValue * 100);
-    PaceSecondsValue = 0.6 * PaceSecondsValue;
-
-    inputPaceMinutes.value = PaceMinValue;
-    inputPaceSeconds.value = PaceSecondsValue;
+        let totalPaceValue = minutesValue / inputDistance.value;
+        
+        let PaceMinValue = Math.trunc(totalPaceValue);
+    
+        let PaceSecondsValue = totalPaceValue % 1;
+        PaceSecondsValue = Math.round(PaceSecondsValue * 100);
+        PaceSecondsValue = 0.6 * PaceSecondsValue;
+    
+        inputPaceMinutes.value = PaceMinValue;
+        inputPaceSeconds.value = PaceSecondsValue;
+    }
 }
 
-function OutputSpeed(){
-    let timeValue = (Number(inputTimeSeconds.value) / 60) + (Number(inputTimeMinutes.value) / 60) + Number(inputTimeHour.value);
-    let distanceValue = Number(inputDistance.value);
-
-    let speedValue = distanceValue / timeValue;
-    inputSpeed.value = speedValue.toFixed(2);
-}
-
-function OutputSpeedByPace(){
-    let speedValue = 60 / ((Number(inputPaceSeconds.value) / 60) + (Number(inputPaceMinutes.value)));
-    console.log(speedValue);
-    inputSpeed.value = speedValue.toFixed(2);
+function OutputSpeed(whereFrom){
+    if (whereFrom == "Pace"){ //only have pace
+        let speedValue = 60 / ((Number(inputPaceSeconds.value) / 60) + (Number(inputPaceMinutes.value)));
+        console.log(speedValue);
+        inputSpeed.value = speedValue.toFixed(2);
+    }
+    else{
+        let timeValue = (Number(inputTimeSeconds.value) / 60) + (Number(inputTimeMinutes.value) / 60) + Number(inputTimeHour.value);
+        let distanceValue = Number(inputDistance.value);
+    
+        let speedValue = distanceValue / timeValue;
+        inputSpeed.value = speedValue.toFixed(2);
+    }
 }
 
 function OutputDistance(){
@@ -77,15 +94,15 @@ function OutputDistance(){
     inputDistance.value = distanceValue.toFixed(2);
 }
 
-function Result(){
+function Calculate(){
     if (Number(inputSpeed.value) > 0){ //if have something in speed
         if (Number(inputTimeHour.value) > 0 || Number(inputTimeMinutes.value) > 0 || Number(inputTimeSeconds.value) > 0){
             OutputDistance();
             OutputPace();
         }
         else{
+            OutputPace("Speed");
             OutputTime();
-            OutputPace();
         }
     }
     else if (Number(inputTimeHour.value) > 0 || Number(inputTimeMinutes.value) > 0  || Number(inputTimeSeconds.value) > 0){//if have something in time
@@ -93,9 +110,8 @@ function Result(){
         OutputPace();
     }
     else if (Number(inputPaceMinutes.value) > 0 || Number(inputPaceSeconds.value) > 0){ //if something in pace
-        OutputSpeedByPace();
+        OutputSpeed("Pace");
     }
-    PutZero();
     //TODO: CALCULADORA FUNCIONANDO, AGORA PEGAR O VALOR QUE MUDOU E REALIZAR OS OUTROS CALCULOS EM CIMA DELE
 }
 
