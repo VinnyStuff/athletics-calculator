@@ -9,9 +9,9 @@
 <body>
     <Div class="calculator">
         <form id="form">
-            Time <input id="timeHour" type="number" placeholder="Hour"/>  
-            <input id="timeMinutes" type="number" placeholder="Minutes"/>
-            <input id="timeSeconds" type="number" placeholder="Seconds"/>
+            Time <input id="timeHour" class="time" type="number" placeholder="h"/>:
+            <input id="timeMinutes" class="time" type="number" placeholder="min"/>:
+            <input id="timeSeconds" class="time" type="number" placeholder="sec"/>
             <br> <br>
             
             Speed (km/h) <input id="speed" type="number"/>  <br> <br>
@@ -25,6 +25,8 @@
             <button type="button" id="clearButton">Clear</button>   
         </form>
     </Div>
+
+    <link rel="stylesheet" href="style.css">
 
     <script src="js/script.js"></script>
 </body>

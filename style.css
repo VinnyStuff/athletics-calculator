@@ -1,0 +1,18 @@
+input::-webkit-outer-spin-button, /* Chrome, Safari, Edge, Opera */
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type=number] { /* Firefox */
+    -moz-appearance: textfield;
+  }
+
+.calculator {
+    text-align: center;
+}
+
+.time {
+    width: 20px;
+    border: 0;
+    border-bottom: 2px solid #9e9e9e;
+    outline: none;
+}
