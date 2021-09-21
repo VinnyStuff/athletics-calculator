@@ -7,23 +7,25 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Para funcionar você precisa de um valor na distância e em algum outro campo</p>
+    <Div class="calculator">
+        <form id="form">
+            Time <input id="timeHour" type="number" placeholder="Hour"/>  
+            <input id="timeMinutes" type="number" placeholder="Minutes"/>
+            <input id="timeSeconds" type="number" placeholder="Seconds"/>
+            <br> <br>
+            
+            Speed (km/h) <input id="speed" type="number"/>  <br> <br>
+            
+            Distance (km) <input id="distance" type="number"/>  <br> <br>
+        
+            Pace <input id="paceMinutes" type="number" placeholder="Minutes"/> 
+            <input id="paceSeconds" type="number" placeholder="Seconds"/> /km<br> <br>
+        
+            <button type="submit">Calculate</button>   
+            <button type="button" id="clearButton">Clear</button>   
+        </form>
+    </Div>
 
-    Time <input id="timeHour" type="number" placeholder="Hour"/>  
-    <input id="timeMinutes" type="number" placeholder="Minutes"/>
-    <input id="timeSeconds" type="number" placeholder="Seconds"/>
-    <br> <br>
-    
-    Speed (km/h) <input id="speed" type="number"/>  <br> <br>
-    
-    Distance (km) <input id="distance" type="number"/>  <br> <br>
-
-    Pace <input id="paceMinutes" type="number" placeholder="Minutes"/> 
-    <input id="paceSeconds" type="number" placeholder="Seconds"/> <br> <br>
-
-    <button onclick="Calculate()">Calculate</button>   
-    <button onclick="Clear()">Clear</button> 
-    
     <script src="js/script.js"></script>
 </body>
 </html>
