@@ -171,20 +171,21 @@ function Calculate() {
         }
     }
     else if (InputSpeedHaveSomething() == true) {
-        if (InputTimeHaveSomething() == true) { //pode apagar
-            Distance();
-            Pace();
-        }
-        else {
+        if (InputDistaceHaveSomething() == true){
             Pace("Speed");
             Time();
         }
-    }
-    else if (InputDistaceHaveSomething() == true) {
-
+        if (InputPaceHaveSomething() == false){
+            Pace("Speed");
+        }
     }
     else if (InputPaceHaveSomething() == true) {
-        Speed("Pace");
+        if (InputSpeedHaveSomething() == false){
+            Speed("Pace");
+        }
+        if (InputDistaceHaveSomething() == true){
+            Time();
+        }
     }
     //TODO: CALCULADORA FUNCIONANDO, AGORA PEGAR O VALOR QUE MUDOU E REALIZAR OS OUTROS CALCULOS EM CIMA DELE
 }
