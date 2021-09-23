@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
+    <Div class="types">
+        <button type="button" id="paceButton">Pace</button>
+        <button type="button" id="speedButton">Speed</button>
+        <button type="button" id="distanceButton">Distance</button>
+        <button type="button" id="timeButton">Time</button>       
+    </Div>
+
     <Div class="calculator">
         <form id="form">
             Time <input id="timeHour" class="time" type="number" placeholder="h"/>:
@@ -18,8 +25,8 @@
             
             Distance (km) <input id="distance" type="number"/>  <br> <br>
         
-            Pace <input id="paceMinutes" type="number" placeholder="Minutes"/> 
-            <input id="paceSeconds" type="number" placeholder="Seconds"/> /km<br> <br>
+            Pace <input id="paceMinutes" class="time" type="number" placeholder="Minutes"/> 
+            <input id="paceSeconds" class="time" type="number" placeholder="Seconds"/> /km<br> <br>
         
             <button type="submit">Calculate</button>   
             <button type="button" id="clearButton">Clear</button>   
