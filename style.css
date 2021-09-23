@@ -23,5 +23,18 @@ input[type=number] { /* Firefox */
 
 .types {
     text-align: center;
-    vertical-align: baseline;
+}
+
+.typesButton{
+    border: none;
+    border-radius: 12px;
+    padding: 10px 32px;
+}
+
+.typesButton:hover{
+    background-color:gray;
+}
+
+.typesButton:active{
+    background-color:black;
 }
