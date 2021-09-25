@@ -25,10 +25,12 @@ input[type=number] { /* Firefox */
     text-align: center;
 }
 
+#currentType{
+    font-size: 38pt;
+}
+
 .typesButton{
     border: none;
-    border-radius: 12px;
-    padding: 10px 32px;
 }
 
 .typesButton:hover{
@@ -36,9 +38,5 @@ input[type=number] { /* Firefox */
 }
 
 .typesButton:active{
-    background-color:black;
-}
-
-#currentType{
-    font-size: 38pt;
+    background-color:white;
 }

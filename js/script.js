@@ -160,7 +160,27 @@ function Calculate(event) {
     PutZero();
     //TODO: CALCULADORA FUNCIONANDO, AGORA PEGAR O VALOR QUE MUDOU E REALIZAR OS OUTROS CALCULOS EM CIMA DELE
 }
+document.getElementById("form").onsubmit = Calculate;
 
-document.getElementById("form").onsubmit=Calculate;
+document.getElementById("clearButton").onclick = Clear;
 
-document.getElementById("clearButton").onclick=Clear;
+const types = ["Time", "Speed", "Distance", "Pace"] 
+
+const typesButtonText = [document.getElementById("button0"), document.getElementById("button1"), document.getElementById("button2")];
+
+document.getElementById("button0").onclick = changeType;
+document.getElementById("button1").onclick = changeType;
+document.getElementById("button2").onclick = changeType;
+
+function changeType(e){
+    document.getElementById("currentType").innerText = e.currentTarget.innerText;
+
+    let typeButtonIndex = 0;
+
+    for (let i = 0; i < types.length; i++){
+        if (types[i] != document.getElementById("currentType").innerText){
+            typesButtonText[typeButtonIndex].innerText = types[i];
+            typeButtonIndex++;
+        }
+    }
+}

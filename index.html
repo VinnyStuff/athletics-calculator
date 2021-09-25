@@ -1,44 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div class="types">
-        <button type="button" class="typesButton" id="button1"></button>
-        <button type="button" class="typesButton" id="button2"></button>
-        <button type="button" class="typesButton" id="button3"></button>
-        
+        <button type="button" class="typesButton" id="button0">Time</button>
+        <button type="button" class="typesButton" id="button1">Distace</button>
+        <button type="button" class="typesButton" id="button2">Speed</button>
+
         <h1 id="currentType">Pace</h1>
     </div>
+
     <br>
 
-    <Div class="calculator">
+    <div class="calculator">
         <form id="form">
-            Time <input id="timeHour" class="time" type="number" placeholder="h"/>:
-            <input id="timeMinutes" class="time" type="number" placeholder="min"/>:
-            <input id="timeSeconds" class="time" type="number" placeholder="sec"/>
+            <div id="timeInput">
+                Time <input id="timeHour" class="time" type="number" placeholder="h" />:
+                <input id="timeMinutes" class="time" type="number" placeholder="min" />:
+                <input id="timeSeconds" class="time" type="number" placeholder="sec" />
+            </div>
+            
+            <br>
 
-            <br> <br>
+            <div id="speedInput">
+                Speed (km/h) <input id="speed" type="number" />
+            </div>
+
+            <br>
+
+            <div id="distanceInput">
+                Distance (km) <input id="distance" type="number" />
+            </div>
+
+            <br>
+            <div id="paceInput">
+
+                Pace <input id="paceMinutes" class="time" type="number" placeholder="Minutes" />
+                <input id="paceSeconds" class="time" type="number" placeholder="Seconds" /> /km
+            </div>
             
-            Speed (km/h) <input id="speed" type="number"/>  <br> <br>
-            
-            Distance (km) <input id="distance" type="number"/>  <br> <br>
-        
-            Pace <input id="paceMinutes" class="time" type="number" placeholder="Minutes"/> 
-            <input id="paceSeconds" class="time" type="number" placeholder="Seconds"/> /km<br> <br>
-        
-            <button type="submit">Calculate</button>   
-            <button type="button" id="clearButton">Clear</button>   
+            <br>
+
+            <div id="buttonsCalculator">
+                <button type="submit">Calculate</button>
+                <button type="button" id="clearButton">Clear</button>
+            </div>
         </form>
-    </Div>
+    </div>
 
 
     <link rel="stylesheet" href="style.css">
 
     <script src="js/script.js"></script>
 </body>
+
 </html>
