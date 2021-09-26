@@ -164,21 +164,25 @@ document.getElementById("form").onsubmit = Calculate;
 
 document.getElementById("clearButton").onclick = Clear;
 
+//--------------------------------------------------
+
 const types = ["Time", "Speed", "Distance", "Pace"] 
 
 const typesButtonText = [document.getElementById("button0"), document.getElementById("button1"), document.getElementById("button2")];
+
+const currentTypeTitle = document.getElementById("currentType");
 
 document.getElementById("button0").onclick = changeType;
 document.getElementById("button1").onclick = changeType;
 document.getElementById("button2").onclick = changeType;
 
-function changeType(e){
-    document.getElementById("currentType").innerText = e.currentTarget.innerText;
+function changeType(){
+    currentTypeTitle.innerText = this.innerText;
 
     let typeButtonIndex = 0;
 
     for (let i = 0; i < types.length; i++){
-        if (types[i] != document.getElementById("currentType").innerText){
+        if (types[i] != currentTypeTitle.innerText){
             typesButtonText[typeButtonIndex].innerText = types[i];
             typeButtonIndex++;
         }
