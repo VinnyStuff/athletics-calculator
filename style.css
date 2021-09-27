@@ -40,3 +40,16 @@ input[type=number] { /* Firefox */
 .typesButton:active{
     background-color:white;
 }
+
+input[type=number]{
+    min-height: 32px;
+
+}
+
+button{
+    min-height: 32px;
+}
+
+div{
+    border: 1px dotted purple;
+}

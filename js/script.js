@@ -168,6 +168,8 @@ document.getElementById("clearButton").onclick = Clear;
 
 const types = ["Time", "Speed", "Distance", "Pace"] 
 
+const inputs = document.querySelectorAll('.calculator .input');
+
 const typesButtonText = [document.getElementById("button0"), document.getElementById("button1"), document.getElementById("button2")];
 
 const currentTypeTitle = document.getElementById("currentType");
@@ -187,4 +189,9 @@ function changeType(){
             typeButtonIndex++;
         }
     }
+
+    for (let i = 0; i < inputs.length; i++){
+        inputs[i].style.display = 'none';
+    }
+
 }
