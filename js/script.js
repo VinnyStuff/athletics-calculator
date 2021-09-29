@@ -69,7 +69,7 @@ function Speed(whereFrom) {
     }
 }
 
-function Distance(whereFrom) {
+function Distance() {
     let distanceValue = Number(inputSpeed.value) * (((Number(inputTimeSeconds.value / 60) + Number(inputTimeMinutes.value)) / 60) + Number(inputTimeHour.value));
 
     inputDistance.value = distanceValue.toFixed(2);
