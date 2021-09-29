@@ -189,9 +189,4 @@ function changeType(){
             typeButtonIndex++;
         }
     }
-
-    for (let i = 0; i < inputs.length; i++){
-        inputs[i].style.display = 'none';
-    }
-
 }
