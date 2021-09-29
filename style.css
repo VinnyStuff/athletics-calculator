@@ -31,6 +31,7 @@ input[type=number] { /* Firefox */
 
 .typesButton{
     border: none;
+    font-size: 20pt;
 }
 
 .typesButton:hover{
