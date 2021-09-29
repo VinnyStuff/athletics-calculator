@@ -166,9 +166,7 @@ document.getElementById("clearButton").onclick = Clear;
 
 //--------------------------------------------------
 
-const types = ["Time", "Speed", "Distance", "Pace"] 
-
-const inputs = document.querySelectorAll('.calculator .input');
+const types = ["Pace", "Time", "Speed", "Distance"] 
 
 const typesButtonText = [document.getElementById("button0"), document.getElementById("button1"), document.getElementById("button2")];
 
@@ -177,6 +175,12 @@ const currentTypeTitle = document.getElementById("currentType");
 document.getElementById("button0").onclick = changeType;
 document.getElementById("button1").onclick = changeType;
 document.getElementById("button2").onclick = changeType;
+
+const tabs = document.querySelectorAll('#form > div');
+
+for (let i = 1; i < tabs.length; i++){
+    tabs[i].style.display = 'none';
+}
 
 function changeType(){
     currentTypeTitle.innerText = this.innerText;
@@ -187,6 +191,13 @@ function changeType(){
         if (types[i] != currentTypeTitle.innerText){
             typesButtonText[typeButtonIndex].innerText = types[i];
             typeButtonIndex++;
+
+            tabs[i].style.display = 'none';
+        }
+        else{
+            tabs[i].style.display = 'block';
         }
     }
+
+
 }
