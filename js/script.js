@@ -194,6 +194,16 @@ function changeType(){
             tabs[i].style.display = 'block';
         }
     }
+    if (currentTypeTitle.innerText == "Time"){
+        console.log("a");
+    }
+    else if (currentTypeTitle.innerText == "Distance"){
+        console.log("a");
+    }
+}
 
+
+
+function changeSpeedToPace(){ //or pace to speed
 
 }
