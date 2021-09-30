@@ -10,9 +10,11 @@
 
 <body>
     <div class="types">
+        <button type="button" class="typesButton" id="button3">Pace</button>
         <button type="button" class="typesButton" id="button0">Time</button>
         <button type="button" class="typesButton" id="button1">Speed</button>
         <button type="button" class="typesButton" id="button2">Distance</button>
+
 
         <h1 id="currentType">Pace</h1>
     </div>
@@ -50,7 +52,7 @@
                 <div class="result">
                     <div class="paceInput">
                         Pace <input readonly id="paceMinutes" class="time" type="number" placeholder="Minutes" />
-                        <input id="paceSeconds" class="time" type="number" placeholder="Seconds" /> /km
+                        <input readonly id="paceSeconds" class="time" type="number" placeholder="Seconds" /> /km
                     </div>
                 </div>
             </div>
@@ -140,7 +142,7 @@
                 <br>
                 <div class="result">
                     <div class="distanceInput">
-                        Distance (km) <input id="distance" type="number" />
+                        Distance (km) <input readonly id="distance" type="number" />
                     </div>
                 </div>
             </div>
