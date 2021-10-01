@@ -27,32 +27,32 @@
             <div id="paceTab" style="border: 2px solid red;">
                 <div class="group1">
                     <div class="timeInput">
-                        Time <input id="timeHour" class="time" type="number" placeholder="h" />:
-                        <input id="timeMinutes" class="time" type="number" placeholder="min" />:
-                        <input id="timeSeconds" class="time" type="number" placeholder="sec" />
+                        Time <input class="timeHour" class="time" type="number" placeholder="h" />:
+                        <input class="timeMinutes" class="time" type="number" placeholder="min" />:
+                        <input class="timeSeconds" class="time" type="number" placeholder="sec" />
                     </div>
                     <div class="distanceInput">
-                        Distance (km) <input id="distance" type="number" />
+                        Distance (km) <input class="distance" type="number" />
                     </div>
                 </div>
                 <br>
                 <div class="group2">
                     <div class="speedInput">
-                        Speed (km/h) <input id="speed" type="number" />
+                        Speed (km/h) <input class="speed" type="number" />
                     </div>
                 </div>
                 <br>
                 <div>
                     <div class="buttonsCalculator">
                         <button type="submit">Calculate</button>
-                        <button type="button" id="clearButton">Clear</button>
+                        <button type="button" class="clearButton">Clear</button>
                     </div>
                 </div>
                 <br>
                 <div class="result">
                     <div class="paceInput">
-                        Pace <input readonly id="paceMinutes" class="time" type="number" placeholder="Minutes" />
-                        <input readonly id="paceSeconds" class="time" type="number" placeholder="Seconds" /> /km
+                        Pace <input readonly class="paceMinutes" class="time" type="number" placeholder="Minutes" />
+                        <input readonly class="paceSeconds" class="time" type="number" placeholder="Seconds" /> /km
                     </div>
                 </div>
             </div>
@@ -61,28 +61,28 @@
             <div id="timeTab" style="border: 2px solid blue;">
                 <div class="group1">
                     <div class="distanceInput">
-                        Distance (km) <input id="distance" type="number" />
+                        Distance (km) <input class="distance" type="number" />
                     </div>
                     <button type="button" class="typesButton" id="paceToSpeed">change</button>
                     <div class="speedInput">
-                        Speed (km/h) <input id="speed" type="number" />
+                        Speed (km/h) <input class="speed" type="number" />
                     </div>
                     <div class="paceInput">
-                        Pace <input id="paceMinutes" class="time" type="number" placeholder="Minutes" />
-                        <input id="paceSeconds" class="time" type="number" placeholder="Seconds" /> /km
+                        Pace <input class="paceMinutes" class="time" type="number" placeholder="Minutes" />
+                        <input class="paceSeconds" class="time" type="number" placeholder="Seconds" /> /km
                     </div>
                 </div>
                 <br>
                 <div class="buttonsCalculator">
                     <button type="submit">Calculate</button>
-                    <button type="button" id="clearButton">Clear</button>
+                    <button type="button" class="clearButton">Clear</button>
                 </div>
                 <br>
                 <div class="result">
                     <div class="timeInput">
-                        Time <input readonly id="timeHour" class="time" type="number" placeholder="h" />:
-                        <input readonly id="timeMinutes" class="time" type="number" placeholder="min" />:
-                        <input readonly id="timeSeconds" class="time" type="number" placeholder="sec" />
+                        Time <input readonly class="timeHour" class="time" type="number" placeholder="h" />:
+                        <input readonly class="timeMinutes" class="time" type="number" placeholder="min" />:
+                        <input readonly class="timeSeconds" class="time" type="number" placeholder="sec" />
                     </div>
                 </div>
             </div>
@@ -91,30 +91,30 @@
             <div id="speedTab" style="border: 2px solid purple;">
                 <div class="group1">
                     <div class="distanceInput">
-                        Distance (km) <input id="distance" type="number" />
+                        Distance (km) <input class="distance" type="number" />
                     </div>
                     <div class="timeInput">
-                        Time <input id="timeHour" class="time" type="number" placeholder="h" />:
-                        <input id="timeMinutes" class="time" type="number" placeholder="min" />:
-                        <input id="timeSeconds" class="time" type="number" placeholder="sec" />
+                        Time <input class="timeHour" class="time" type="number" placeholder="h" />:
+                        <input class="timeMinutes" class="time" type="number" placeholder="min" />:
+                        <input class="timeSeconds" class="time" type="number" placeholder="sec" />
                     </div>
                 </div>
                 <br>
                 <div class="group2">
                     <div class="paceInput">
-                        Pace <input id="paceMinutes" class="time" type="number" placeholder="Minutes" />
-                        <input id="paceSeconds" class="time" type="number" placeholder="Seconds" /> /km
+                        Pace <input class="paceMinutes" class="time" type="number" placeholder="Minutes" />
+                        <input class="paceSeconds" class="time" type="number" placeholder="Seconds" /> /km
                     </div>
                 </div>
                 <br>
                 <div class="buttonsCalculator">
                     <button type="submit">Calculate</button>
-                    <button type="button" id="clearButton">Clear</button>
+                    <button type="button" class="clearButton">Clear</button>
                 </div>
                 <br>
                 <div class="result">
                     <div class="speedInput">
-                        Speed (km/h) <input readonly id="speed" type="number" />
+                        Speed (km/h) <input readonly class="speed" type="number" />
                     </div>
                 </div>
             </div>
@@ -123,28 +123,28 @@
             <div id="distanceTab" style="border: 2px solid orange;">
                 <div class="group1">
                     <div class="timeInput">
-                        Time <input id="timeHour" class="time" type="number" placeholder="h" />:
-                        <input id="timeMinutes" class="time" type="number" placeholder="min" />:
-                        <input id="timeSeconds" class="time" type="number" placeholder="sec" />
+                        Time <input class="timeHour" class="time" type="number" placeholder="h" />:
+                        <input class="timeMinutes" class="time" type="number" placeholder="min" />:
+                        <input class="timeSeconds" class="time" type="number" placeholder="sec" />
                     </div>
                     <button type="button" class="typesButton" id="paceToSpeed">change</button>
                     <div class="speedInput">
-                        Speed (km/h) <input id="speed" type="number" />
+                        Speed (km/h) <input class="speed" type="number" />
                     </div>
                     <div class="paceInput">
-                        Pace <input id="paceMinutes" class="time" type="number" placeholder="Minutes" />
-                        <input id="paceSeconds" class="time" type="number" placeholder="Seconds" /> /km
+                        Pace <input class="paceMinutes" class="time" type="number" placeholder="Minutes" />
+                        <input class="paceSeconds" class="time" type="number" placeholder="Seconds" /> /km
                     </div>
                 </div>
                 <br>
                 <div class="buttonsCalculator">
                     <button type="submit">Calculate</button>
-                    <button type="button" id="clearButton">Clear</button>
+                    <button type="button" class="clearButton">Clear</button>
                 </div>
                 <br>
                 <div class="result">
                     <div class="distanceInput">
-                        Distance (km) <input readonly id="distance" type="number" />
+                        Distance (km) <input readonly class="distance" type="number" />
                     </div>
                 </div>
             </div>

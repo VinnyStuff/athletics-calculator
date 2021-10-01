@@ -1,19 +1,21 @@
-const inputSpeed = document.getElementById("speed");
+let inputSpeed = document.getElementsByClassName("speed");
 
-const inputDistance = document.getElementById("distance");
+let inputDistance = document.getElementsByClassName("distance");
 
-const inputTimeHour = document.getElementById("timeHour");
-const inputTimeMinutes = document.getElementById("timeMinutes");
-const inputTimeSeconds = document.getElementById("timeSeconds");
+let inputTimeHour = document.getElementsByClassName("timeHour");
+let inputTimeMinutes = document.getElementsByClassName("timeMinutes");
+let inputTimeSeconds = document.getElementsByClassName("timeSeconds");
 
-const inputPaceMinutes = document.getElementById("paceMinutes");
-const inputPaceSeconds = document.getElementById("paceSeconds");
+let inputPaceMinutes = document.getElementsByClassName("paceMinutes");
+let inputPaceSeconds = document.getElementsByClassName("paceSeconds");
 
-const allInputs = [inputSpeed, inputDistance, inputTimeHour, inputTimeMinutes, inputTimeSeconds, inputPaceMinutes, inputPaceSeconds]
+let allInputs = [inputSpeed, inputDistance, inputTimeHour, inputTimeMinutes, inputTimeSeconds, inputPaceMinutes, inputPaceSeconds]
 
-function Time() {
+let currentTabIndex = 0;
+
+function Time(currentTab) {
     //get the numbers
-    let totalValue = inputDistance.value / inputSpeed.value;
+    let totalValue = inputDistance[currentTab].value / inputSpeed[currentTab].value;
 
     let hourValue = totalValue;
 
@@ -32,16 +34,16 @@ function Time() {
         hourValue += 1;
     }
     //print
-    inputTimeHour.value = Math.trunc(hourValue);
+    inputTimeHour[currentTab].value = Math.trunc(hourValue);
 
-    inputTimeMinutes.value = Math.trunc(minutesValue);
+    inputTimeMinutes[currentTab].value = Math.trunc(minutesValue);
 
-    inputTimeSeconds.value = Math.trunc(secondsValue);
+    inputTimeSeconds[currentTab].value = Math.trunc(secondsValue);
     //TODO: não arredondar o segundos e colocar decimais // colocar as variaveis que faltam que estão presente no HTML
 }
 
-function Pace() {
-    let paceValue = 60 / (Number(inputSpeed.value))
+function Pace(currentTab) {
+    let paceValue = 60 / (Number(inputSpeed[currentTab].value))
 
     let paceMinutesValue = Math.trunc(paceValue);
 
@@ -50,29 +52,29 @@ function Pace() {
     paceSecondsValue = 0.6 * paceSecondsValue;
     paceSecondsValue = Math.round(paceSecondsValue);
 
-    inputPaceMinutes.value = paceMinutesValue;
-    inputPaceSeconds.value = paceSecondsValue;
+    inputPaceMinutes[currentTab].value = paceMinutesValue;
+    inputPaceSeconds[currentTab].value = paceSecondsValue;
 }
 
-function Speed(whereFrom) {
+function Speed(whereFrom, currentTab) {
     if (whereFrom == "Pace") { //only have pace
-        let speedValue = 60 / ((Number(inputPaceSeconds.value) / 60) + (Number(inputPaceMinutes.value)));
+        let speedValue = 60 / ((Number(inputPaceSeconds[currentTab].value) / 60) + (Number(inputPaceMinutes[currentTab].value)));
         console.log(speedValue);
-        inputSpeed.value = speedValue.toFixed(2);
+        inputSpeed[currentTab].value = speedValue.toFixed(2);
     }
     else {
-        let timeValue = (Number(inputTimeSeconds.value) / 60) + (Number(inputTimeMinutes.value) / 60) + Number(inputTimeHour.value);
-        let distanceValue = Number(inputDistance.value);
+        let timeValue = (Number(inputTimeSeconds[currentTab].value) / 60) + (Number(inputTimeMinutes[currentTab].value) / 60) + Number(inputTimeHour[currentTab].value);
+        let distanceValue = Number(inputDistance[currentTab].value);
 
         let speedValue = distanceValue / timeValue;
-        inputSpeed.value = speedValue.toFixed(2);
+        inputSpeed[currentTab].value = speedValue.toFixed(2);
     }
 }
 
-function Distance() {
-    let distanceValue = Number(inputSpeed.value) * (((Number(inputTimeSeconds.value / 60) + Number(inputTimeMinutes.value)) / 60) + Number(inputTimeHour.value));
+function Distance(currentTab) {
+    let distanceValue = Number(inputSpeed[currentTab].value) * (((Number(inputTimeSeconds[currentTab].value / 60) + Number(inputTimeMinutes[currentTab].value)) / 60) + Number(inputTimeHour[currentTab].value));
 
-    inputDistance.value = distanceValue.toFixed(2);
+    inputDistance[currentTab].value = distanceValue.toFixed(2);
 }
 function Clear() {
     for (let i = 0; i < allInputs.length; i++) {
@@ -88,8 +90,8 @@ function PutZero() { //if the input is null, put zero
     }
 }
 
-function InputTimeHaveSomething() {
-    if (Number(inputTimeHour.value) > 0 || Number(inputTimeMinutes.value) > 0 || Number(inputTimeSeconds.value) > 0) {
+function InputTimeHaveSomething(currentTab) {
+    if (Number(inputTimeHour[currentTab].value) > 0 || Number(inputTimeMinutes[currentTab].value) > 0 || Number(inputTimeSeconds[currentTab].value) > 0) {
         return true;
     }
     else {
@@ -97,8 +99,8 @@ function InputTimeHaveSomething() {
     }
 }
 
-function InputSpeedHaveSomething() {
-    if (Number(inputSpeed.value) > 0) {
+function InputSpeedHaveSomething(currentTab) {
+    if (Number(inputSpeed[currentTab].value) > 0) {
         return true;
     }
     else {
@@ -106,8 +108,8 @@ function InputSpeedHaveSomething() {
     }
 }
 
-function InputDistaceHaveSomething() {
-    if (Number(inputDistance.value) > 0) {
+function InputDistaceHaveSomething(currentTab) {
+    if (Number(inputDistance[currentTab].value) > 0) {
         return true;
     }
     else {
@@ -115,8 +117,8 @@ function InputDistaceHaveSomething() {
     }
 }
 
-function InputPaceHaveSomething() {
-    if (Number(inputPaceMinutes.value) > 0 || Number(inputPaceSeconds.value) > 0) {
+function InputPaceHaveSomething(currentTab) {
+    if (Number(inputPaceMinutes[currentTab].value) > 0 || Number(inputPaceSeconds[currentTab].value) > 0) {
         return true;
     }
     else {
@@ -126,43 +128,43 @@ function InputPaceHaveSomething() {
 
 function Calculate(event) {
     event.preventDefault();
-    if (InputTimeHaveSomething() == true) {
-        if (InputDistaceHaveSomething() == true) {
-            Speed();
-            Pace();
+    if (InputTimeHaveSomething(currentTabIndex) == true) {
+        if (InputDistaceHaveSomething(currentTabIndex) == true) {
+            Speed("", currentTabIndex);
+            Pace(currentTabIndex);
         }
-        else if (InputPaceHaveSomething() == true) {
-            Speed("Pace");
-            Distance();
+        else if (InputPaceHaveSomething(currentTabIndex) == true) {
+            Speed("Pace", currentTabIndex);
+            Distance(currentTabIndex);
         }
-        else if (InputSpeedHaveSomething() == true) {
-            Pace();
-            Distance();
-        }
-    }
-    else if (InputSpeedHaveSomething() == true) {
-        if (InputDistaceHaveSomething() == true){
-            Pace();
-            Time();
-        }
-        if (InputPaceHaveSomething() == false){
-            Pace();
+        else if (InputSpeedHaveSomething(currentTabIndex) == true) {
+            Pace(currentTabIndex);
+            Distance(currentTabIndex);
         }
     }
-    else if (InputPaceHaveSomething() == true) {
-        if (InputSpeedHaveSomething() == false){
-            Speed("Pace");
+    else if (InputSpeedHaveSomething(currentTabIndex) == true) {
+        if (InputDistaceHaveSomething(currentTabIndex) == true){
+            Pace(currentTabIndex);
+            Time(currentTabIndex);
         }
-        if (InputDistaceHaveSomething() == true){
-            Time();
+        if (InputPaceHaveSomething(currentTabIndex) == false){
+            Pace(currentTabIndex);
         }
     }
-    PutZero();
+    else if (InputPaceHaveSomething(currentTabIndex) == true) {
+        if (InputSpeedHaveSomething(currentTabIndex) == false){
+            Speed("Pace", currentTabIndex);
+        }
+        if (InputDistaceHaveSomething(currentTabIndex) == true){
+            Time(currentTabIndex);
+        }
+    }
+    //PutZero();
     //TODO: CALCULADORA FUNCIONANDO, AGORA PEGAR O VALOR QUE MUDOU E REALIZAR OS OUTROS CALCULOS EM CIMA DELE
 }
 document.getElementById("form").onsubmit = Calculate;
 
-document.getElementById("clearButton").onclick = Clear;
+//document.getElementById("clearButton").onclick = Clear;
 
 //--------------------------------------------------
 
@@ -186,22 +188,29 @@ for (let i = 1; i < tabs.length; i++){
 function changeType(){
     currentTypeTitle.innerText = this.innerText;
 
+
     for (let i = 0; i < types.length; i++){
         if (types[i] != currentTypeTitle.innerText){
             tabs[i].style.display = 'none';
         }
         else{
             tabs[i].style.display = 'block';
+
+            currentTabIndex = i;
         }
     }
     if (currentTypeTitle.innerText == "Time"){
-        console.log("a");
+        //console.log("a");
     }
     else if (currentTypeTitle.innerText == "Distance"){
-        console.log("a");
+        //console.log("a");
     }
+    console.log(currentTabIndex);
 }
 
+function putName(){
+
+}
 
 
 function changeSpeedToPace(){ //or pace to speed
