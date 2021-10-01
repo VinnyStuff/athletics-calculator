@@ -9,8 +9,6 @@ let inputTimeSeconds = document.getElementsByClassName("timeSeconds");
 let inputPaceMinutes = document.getElementsByClassName("paceMinutes");
 let inputPaceSeconds = document.getElementsByClassName("paceSeconds");
 
-let allInputs = [inputSpeed, inputDistance, inputTimeHour, inputTimeMinutes, inputTimeSeconds, inputPaceMinutes, inputPaceSeconds]
-
 let currentTabIndex = 0;
 
 function Time(currentTab) {
@@ -77,6 +75,7 @@ function Distance(currentTab) {
     inputDistance[currentTab].value = distanceValue.toFixed(2);
 }
 function Clear() {
+    let allInputs = [inputSpeed[currentTabIndex], inputDistance[currentTabIndex], inputTimeHour[currentTabIndex], inputTimeMinutes[currentTabIndex], inputTimeSeconds[currentTabIndex], inputPaceMinutes[currentTabIndex], inputPaceSeconds[currentTabIndex]];
     for (let i = 0; i < allInputs.length; i++) {
         allInputs[i].value = "";
     }
@@ -164,20 +163,26 @@ function Calculate(event) {
 }
 document.getElementById("form").onsubmit = Calculate;
 
-//document.getElementById("clearButton").onclick = Clear;
+const clearButton = document.getElementsByClassName("clearButton");
+for (let i = 0; i < clearButton.length; i++){
+    clearButton[i].onclick = Clear;
+}
 
 //--------------------------------------------------
 
 const types = ["Pace", "Time", "Speed", "Distance"] 
 
-const typesButtonText = [document.getElementById("button0"), document.getElementById("button1"), document.getElementById("button2")];
-
 const currentTypeTitle = document.getElementById("currentType");
 
-document.getElementById("button0").onclick = changeType;
-document.getElementById("button1").onclick = changeType;
-document.getElementById("button2").onclick = changeType;
-document.getElementById("button3").onclick = changeType;
+const typesButtons = document.getElementsByClassName("typesButton");
+for (let i = 0; i < typesButtons.length; i++){
+    typesButtons[i].onclick = changeType;
+}
+
+let changeButton = document.getElementsByClassName("paceToSpeed");
+for (let i = 0; i < changeButton.length; i++){
+    changeButton[i].onclick = changeSpeedToPace;
+}
 
 const tabs = document.querySelectorAll('#form > div');
 
@@ -200,19 +205,23 @@ function changeType(){
         }
     }
     if (currentTypeTitle.innerText == "Time"){
-        //console.log("a");
+        paceDiv[currentTabIndex].style.display = 'none';
     }
     else if (currentTypeTitle.innerText == "Distance"){
-        //console.log("a");
+        paceDiv[currentTabIndex].style.display = 'none';
     }
-    console.log(currentTabIndex);
 }
 
-function putName(){
-
-}
-
+let paceDiv = document.getElementsByClassName("paceInput");
+let speedDiv = document.getElementsByClassName("speedInput");
 
 function changeSpeedToPace(){ //or pace to speed
-
+    if (paceDiv[currentTabIndex].style.display == 'none'){
+        paceDiv[currentTabIndex].style.display = 'block';
+        speedDiv[currentTabIndex].style.display = 'none';
+    }
+    else{
+        paceDiv[currentTabIndex].style.display = 'none';
+        speedDiv[currentTabIndex].style.display = 'block';
+    }
 }
