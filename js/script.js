@@ -191,6 +191,7 @@ for (let i = 1; i < tabs.length; i++){
 }
 
 function changeType(){
+    Clear();
     currentTypeTitle.innerText = this.innerText;
 
 
