@@ -190,6 +190,8 @@ for (let i = 1; i < tabs.length; i++){
     tabs[i].style.display = 'none';
 }
 
+let changeButtonIndex = 0;
+
 function changeType(){
     Clear();
     currentTypeTitle.innerText = this.innerText;
@@ -207,21 +209,29 @@ function changeType(){
     }
     if (currentTypeTitle.innerText == "Time"){
         paceDiv[currentTabIndex].style.display = 'none';
+        speedDiv[currentTabIndex].style.display = 'block';
+        changeButtonIndex = 0;
     }
     else if (currentTypeTitle.innerText == "Distance"){
         paceDiv[currentTabIndex].style.display = 'none';
+        speedDiv[currentTabIndex].style.display = 'block';
+        changeButtonIndex = 1;
     }
 }
+
+console.log(changeButton[currentTabIndex].innerText);
 
 let paceDiv = document.getElementsByClassName("paceInput");
 let speedDiv = document.getElementsByClassName("speedInput");
 
 function changeSpeedToPace(){ //or pace to speed
     if (paceDiv[currentTabIndex].style.display == 'none'){
-        paceDiv[currentTabIndex].style.display = 'block';
+        changeButton[changeButtonIndex].innerText = "Speed or";
         speedDiv[currentTabIndex].style.display = 'none';
+        paceDiv[currentTabIndex].style.display = 'block'; //block = visible
     }
     else{
+        changeButton[changeButtonIndex].innerText = "Pace or";
         paceDiv[currentTabIndex].style.display = 'none';
         speedDiv[currentTabIndex].style.display = 'block';
     }

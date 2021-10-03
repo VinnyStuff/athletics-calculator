@@ -14,6 +14,7 @@
         <button type="button" class="typesButton">Time</button>
         <button type="button" class="typesButton">Speed</button>
         <button type="button" class="typesButton">Distance</button>
+    </div>
     <div id="currentTab">
         <h1 id="currentType">Pace</h1>
     </div>
@@ -23,10 +24,10 @@
     <div class="calculator">
         <form id="form">
             
-            <div id="paceTab" style="border: 2px solid rgb(128, 66, 66);">
+            <div id="paceTab">
                 <div class="group1">
                     <div class="timeInput">
-                        Time <input class="timeHour" class="time" type="number" placeholder="h" />:
+                        <p>Time</p>  <input class="timeHour" class="time" type="number" placeholder="h" />:
                         <input class="timeMinutes" class="time" type="number" placeholder="min" />:
                         <input class="timeSeconds" class="time" type="number" placeholder="sec" />
                     </div>
@@ -34,7 +35,7 @@
                         Distance (km) <input class="distance" type="number" />
                     </div>
                 </div>
-                <br>
+                Or
                 <div class="group2">
                     <div class="speedInput">
                         Speed (km/h) <input class="speed" type="number" />
@@ -57,12 +58,12 @@
             </div>
             
             
-            <div id="timeTab" style="border: 2px solid rgb(128, 66, 66);">
+            <div id="timeTab">
                 <div class="group1">
                     <div class="distanceInput">
                         Distance (km) <input class="distance" type="number" />
                     </div>
-                    <button type="button" class="paceToSpeed">change</button>
+                    <button type="button" class="paceToSpeed">Pace or</button>
                     <div class="speedInput">
                         Speed (km/h) <input class="speed" type="number" />
                     </div>
@@ -126,7 +127,7 @@
                         <input class="timeMinutes" class="time" type="number" placeholder="min" />:
                         <input class="timeSeconds" class="time" type="number" placeholder="sec" />
                     </div>
-                    <button type="button" class="paceToSpeed">change</button>
+                    <button type="button" class="paceToSpeed">Pace or</button>
                     <div class="speedInput">
                         Speed (km/h) <input class="speed" type="number" />
                     </div>
