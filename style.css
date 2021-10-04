@@ -112,6 +112,8 @@ p{
 }
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;400&family=Roboto:wght@300;400&display=swap');
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -122,20 +124,18 @@ input[type=number] {
 
 .types{
     text-align: center;
-    background-color: #97D5FE;
 }
 
 .typesButton{
-    color: white;
+    font-family: 'Mukta', sans-serif;
+    color: red;
     border: none;
     font-size: 18pt;
-    background-color: transparent;
-    /*margin-left: -3pt;*/
 }
 
 .active{
     text-align: center;
-    color: #97D5FE;
+    color: black;
 }
 
 #currentType{
@@ -143,6 +143,14 @@ input[type=number] {
     text-align: center;
     margin: 0 auto;
     width: 100pt;
+}
+
+.time{
+
+}
+
+.speed{
+    width: 150pt;
 }
 
 p{
