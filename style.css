@@ -145,14 +145,44 @@ input[type=number] {
     width: 100pt;
 }
 
-.time{
+.group1, .group2{
+    background-color: green;
+    text-align: right;
+    width: 230pt;
+    margin: 0 auto;
+}
 
+.buttonsCalculator{
+    text-align: center;
+}
+
+.result{
+    text-align: center;
+}
+
+.distance{
+    width: 150pt;
 }
 
 .speed{
     width: 150pt;
 }
 
-p{
+.time{
+    width: 39.75pt;
+}
+
+.pace{
+    width: 67.5pt;
+}
+
+
+
+.point , .text{
     display: inline;
+
+}
+
+.or{
+    text-align: center;
 }
