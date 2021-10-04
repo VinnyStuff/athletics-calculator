@@ -112,13 +112,39 @@ p{
 }
 */
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 .types{
     text-align: center;
+    background-color: #97D5FE;
 }
 
 .typesButton{
+    color: white;
     border: none;
-    font-size: 20pt;
-    background-color: aqua;
+    font-size: 18pt;
+    background-color: transparent;
+    /*margin-left: -3pt;*/
 }
 
+.active{
+    text-align: center;
+    color: #97D5FE;
+}
+
+#currentType{
+    background-color: aqua;
+    text-align: center;
+    margin: 0 auto;
+    width: 100pt;
+}
+
+p{
+    display: inline;
+}

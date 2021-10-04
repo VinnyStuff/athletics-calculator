@@ -192,6 +192,9 @@ for (let i = 1; i < tabs.length; i++){
 
 let changeButtonIndex = 0;
 
+typesButtons[0].classList.add('active');
+
+
 function changeType(){
     Clear();
     currentTypeTitle.innerText = this.innerText;
@@ -217,9 +220,18 @@ function changeType(){
         speedDiv[currentTabIndex].style.display = 'block';
         changeButtonIndex = 1;
     }
-}
 
-console.log(changeButton[currentTabIndex].innerText);
+    //change design
+
+    for (let i = 0; i < typesButtons.length; i++){
+        if (typesButtons[i] == this){
+            typesButtons[i].classList.add('active');
+        }
+        else{
+            typesButtons[i].classList.remove('active');
+        }
+    }
+}
 
 let paceDiv = document.getElementsByClassName("paceInput");
 let speedDiv = document.getElementsByClassName("speedInput");
