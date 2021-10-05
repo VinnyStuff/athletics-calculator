@@ -13,12 +13,14 @@ input[type=number] {
 }
 
 .typesButton{
+    margin-top: 0.33em;
     font-family: 'Roboto', sans-serif;
     color: #757575;
     background-color: transparent;
-    font-size: 18pt;
+    font-size: 20pt;
     border: none;
     display: inline-block;
+    font-weight: 500;
 }
 
 .active{
@@ -45,7 +47,7 @@ input[type=number] {
     padding-right: 4em;
     padding-top: 0.4em;
     padding-bottom: 0.4em;
-    width: 250pt;
+    width: 215pt;
     margin: 0 auto;
     text-align: right;
 }
