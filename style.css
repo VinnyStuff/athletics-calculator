@@ -112,7 +112,7 @@ p{
 }
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;400&family=Roboto:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -127,30 +127,47 @@ input[type=number] {
 }
 
 .typesButton{
-    font-family: 'Mukta', sans-serif;
-    color: red;
-    border: none;
+    font-family: 'Roboto', sans-serif;
+    color: #757575;
+    background-color: transparent;
     font-size: 18pt;
+    border: none;
+    display: inline-block;
 }
 
 .active{
     text-align: center;
-    color: black;
+    color: #202125;
+    position: relative;
 }
 
-#currentType{
-    background-color: aqua;
-    text-align: center;
-    margin: 0 auto;
-    width: 100pt;
+.active:before{
+    content : "";
+    clear: both;
+    position: absolute;
+    left    : 10%;
+    bottom  : 0;
+    width   : 80%;  /* or 100px */
+    border-bottom: 2.5pt solid #202125;
+    margin: -2.25pt 0; 
 }
 
 .group1, .group2{
-    background-color: green;
-    text-align: right;
-    width: 230pt;
+    background-color: transparent;
+    border: 1pt solid #DFDFDF;
+    padding: 15pt;
+    width: 250pt;
     margin: 0 auto;
 }
+
+.group1{
+
+}
+
+.group2{
+    
+}
+
 
 .buttonsCalculator{
     text-align: center;
