@@ -59,10 +59,15 @@ function Speed(whereFrom, currentTab) {
         let speedValue = 60 / ((Number(inputPaceSeconds[currentTab].value) / 60) + (Number(inputPaceMinutes[currentTab].value)));
         console.log(speedValue);
         inputSpeed[currentTab].value = speedValue.toFixed(2);
+        console.log(inputSpeed[currentTab]);
     }
     else {
-        let timeValue = (Number(inputTimeSeconds[currentTab].value) / 60) + (Number(inputTimeMinutes[currentTab].value) / 60) + Number(inputTimeHour[currentTab].value);
+        let timeValue = (Number(inputTimeSeconds[currentTab].value) / 3600) + (Number(inputTimeMinutes[currentTab].value) / 60) + Number(inputTimeHour[currentTab].value);
         let distanceValue = Number(inputDistance[currentTab].value);
+
+        console.log(timeValue);
+        console.log(distanceValue);
+
 
         let speedValue = distanceValue / timeValue;
         inputSpeed[currentTab].value = speedValue.toFixed(2);
