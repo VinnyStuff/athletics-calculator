@@ -51,7 +51,7 @@ input[type=number] {
 }
 
 .group1{
-    margin-top: -0.8em;
+    margin-top: 1.2em;
 }
 
 .group2{
@@ -128,5 +128,5 @@ input[type=number]:focus{
 }
 
 body{
-    zoom: 110%;
+    text-align: center;
 }
