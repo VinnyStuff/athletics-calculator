@@ -78,7 +78,13 @@ input{
 }
 
 input[type=number]:focus{
-    border: 1.33pt solid #757575;
+    outline: none;
+    border: 1.5pt solid #757575;
+}
+
+
+.result > div > input[type=number]:focus{
+    border: 1.33pt #BEBEBE solid;
 }
 
 .timeInput, .distanceInput, .speedInput, .paceInput{
