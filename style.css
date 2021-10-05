@@ -1,117 +1,3 @@
-/* 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-input[type=number] { Firefox
-    -moz-appearance: textfield;
-}
-@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
-
-.body{
-    background-color: #E9EBEE;
-}
-
-.calculator {
-
-}
-
-input[type=number]{
-    min-height: 32px;
-}
-
-button{
-    min-height: 32px;
-}
-
-
-
-
-
-.group1{
-    border: 2px solid orange;
-    background-color: #5A7CA9;
-    width: 200pt;
-    margin: 0 auto;
-}
-
-.group2{
-    border: 2px solid red;
-    width: 200pt;
-    margin: 0 auto;
-}
-
-#currentTab{
-    border: 2px solid red;
-}
-
-.types{
-    border: 2px solid orange;
-}
-.typesButton{
-    border: none;
-    padding: 0.1em 0.25em;
-    font-size: 20pt;
-    background-color: rgb(197, 197, 214);
-    margin-left: 5pt;
-}
-
-#currentType{
-    font-size: 38pt;
-    font-family: 'Teko', sans-serif;
-    font-weight: normal;
-    color: white;
-    background-color: #5A7CA9;
-    text-align: center;
-}
-
-
-.time {
-    min-width: 50px;
-}
-
-.result{
-    border: 2px solid blue;
-}
-
-input{
-    width: 30pt;
-    text-align: center;
-    text-emphasis-color: white;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid #CCC;
-}
-input, select, textarea{
-    color: white;
-}
-::placeholder {
-    color: white;
-    opacity: 1; 
-  }
-
-body{
-    background-color: #EEEEEE;
-}
-
-.text{
-    color: yellow;
-}
-
-p{
-    display: inline;
-}
-
-.paceToSpeed{
-    
-}
-
-.timeInput{
-    margin-left: 0;
-    width: 200pt;
-}
-*/
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 input::-webkit-outer-spin-button,
@@ -152,54 +38,95 @@ input[type=number] {
     margin: -2.25pt 0; 
 }
 
-.group1, .group2{
+.group1, .group2, .result{
     background-color: transparent;
     border: 1pt solid #DFDFDF;
-    padding: 15pt;
+    padding-left: 2em;
+    padding-right: 4em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
     width: 250pt;
     margin: 0 auto;
+    text-align: right;
 }
 
 .group1{
-
+    margin-top: -0.8em;
 }
 
 .group2{
-    
+    margin-top: 1em;
 }
 
+.text{
+    margin-right: 0.5em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.point{
+    font-family: 'Roboto', sans-serif;
+}
+
+input{
+    border: 1.33pt #BEBEBE solid;
+    border-radius: 3pt;
+    padding: 0.25em;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+input[type=number]:focus{
+    border: 1.33pt solid #757575;
+}
+
+.timeInput, .distanceInput, .speedInput, .paceInput{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
 
 .buttonsCalculator{
     text-align: center;
+    margin-top: 10pt;
 }
 
 .result{
+    margin-top: 10pt;
     text-align: center;
+    padding-left: 3em;
+    padding-right: 3em;
+    border: pt solid #DFDFDF;
 }
 
-.distance{
-    width: 150pt;
-}
-
-.speed{
+.distance ,.speed{
     width: 150pt;
 }
 
 .time{
-    width: 39.75pt;
+    width: 38.8pt;
 }
 
 .pace{
     width: 67.5pt;
 }
 
+.calculatorButton{
+    padding: 0.5em;
+    margin-left: 0.5em;
+    background-color: #ececec;
+    border: 1pt solid #DFDFDF;
+    border-radius: 0.5em;
+    font-family: 'Roboto', sans-serif;
+}
 
+.calculatorButton:active{
+    background-color: #DFDFDF;
+}
 
 .point , .text{
     display: inline;
 
 }
 
-.or{
-    text-align: center;
+body{
+    zoom: 110%;
 }
